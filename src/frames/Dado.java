@@ -14,7 +14,7 @@ public class Dado {
     
     public int tirarNumero(){
         valor=(int)(Math.random()*(6-1)+1);
-        return valor;
+            return valor;
     }
     
 }
