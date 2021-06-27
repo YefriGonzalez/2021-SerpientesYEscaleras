@@ -93,42 +93,42 @@ public class opcionesJuegoFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        int contador=0;
+        int contador = 0;
         int numeroJugadores = Integer.valueOf((JOptionPane.showInputDialog(null, "Cantidad de jugadores para esta partida", "", JOptionPane.PLAIN_MESSAGE, null, new Object[]{2, 3, 4, 5, 6}, "Selecciona")).toString());
         ArrayList<Usuario> usuario = null;
         try {
             usuario = carga.cargarUsuarioBinario();
             if (usuario.get(numeroJugadores - 1).getNombre() != null) {
                 for (int i = 0; i < numeroJugadores; i++) {
-                    boolean nombreCorrecto =false;
-                    contador+=i;
-                    String nombre = JOptionPane.showInputDialog(null, "Ingrese nombre de Usuario No: "+ (i + 1));
-                    if(nombre==null){
-                        i=numeroJugadores;
-                    } else{
+                    boolean nombreCorrecto = false;
+                    contador += i;
+                    String nombre = JOptionPane.showInputDialog(null, "Ingrese nombre de Usuario No: " + (i + 1));
+                    if (nombre == null) {
+                        i = numeroJugadores;
+                    } else {
                         for (int j = 0; j < numeroJugadores && !nombreCorrecto; j++) {
                             if (usuario.get(j).getNombre().equals(nombre)) {
                                 JOptionPane.showMessageDialog(null, "Usuario correcto");
-                                nombreCorrecto=true;
+                                nombreCorrecto = true;
                             } else {
-                                nombreCorrecto=false;
+                                nombreCorrecto = false;
                             }
                         }
-                        if(nombreCorrecto==false){
-                            JOptionPane.showMessageDialog(null,"Usuario incorrecto");
+                        if (nombreCorrecto == false) {
+                            JOptionPane.showMessageDialog(null, "Usuario incorrecto");
                             i--;
                         }
-                    }    
+                    }
                 }
-                if(contador==numeroJugadores){
-                        principal.setVisible(true);
+                if (contador == numeroJugadores) {
+                    principal.setVisible(true);
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "No existen " + numeroJugadores + " jugadores, registre Previamente la cantidad necesaria de jugadores");
             }
         } catch (Exception ex) {
-           JOptionPane.showMessageDialog(null, "No existen " + numeroJugadores + " jugadores, registre Previamente la cantidad necesaria de jugadores");
-        } 
+            JOptionPane.showMessageDialog(null, "No existen " + numeroJugadores + " jugadores, registre Previamente la cantidad necesaria de jugadores");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void registrarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarjButtonActionPerformed
