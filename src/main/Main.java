@@ -1,7 +1,7 @@
 
 package main;
 
-import frames.PrincipalFrame;
+import frames.opcionesJuegoFrame;
 
 /**
  *
@@ -10,7 +10,7 @@ import frames.PrincipalFrame;
 public class Main {
     
     public static void main(String[] args){
-        PrincipalFrame run=new PrincipalFrame();
+        opcionesJuegoFrame run =new opcionesJuegoFrame();
         run.setVisible(true);
     }
     
