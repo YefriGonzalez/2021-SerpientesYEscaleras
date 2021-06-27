@@ -70,7 +70,7 @@ public class ReportesFrame extends javax.swing.JFrame {
             }
         });
 
-        verUsuariosjButton.setText("Ver Usuarios");
+        verUsuariosjButton.setText("Actualizar Usuarios");
         verUsuariosjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verUsuariosjButtonActionPerformed(evt);
@@ -89,7 +89,7 @@ public class ReportesFrame extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(verUsuariosjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(verUsuariosjButton)
                 .addGap(141, 141, 141))
         );
         jPanel1Layout.setVerticalGroup(

@@ -5,11 +5,16 @@
  */
 package frames;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import manejoArchivos.CargarUsuarioBInario;
 import manejoArchivos.GuardarUsuarioBinario;
+import manejoArchivos.LectorTableroEnTexto;
 import usuario.Usuario;
 
 /**
@@ -23,7 +28,9 @@ public class PrincipalFrame extends javax.swing.JFrame {
      */
    
     ReportesFrame reportesFrame;
+    LectorTableroEnTexto lector;
     public PrincipalFrame() {
+        lector=new LectorTableroEnTexto();
         reportesFrame=new ReportesFrame();
         initComponents();
         this.setLocationRelativeTo(null);
@@ -69,14 +76,19 @@ public class PrincipalFrame extends javax.swing.JFrame {
             }
         });
 
-        jugarjButton.setText("Jugar");
+        jugarjButton.setText("Cargar Tablero");
+        jugarjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jugarjButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
         jPanelPrincipal.setLayout(jPanelPrincipalLayout);
         jPanelPrincipalLayout.setHorizontalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrincipalLayout.createSequentialGroup()
-                .addContainerGap(434, Short.MAX_VALUE)
+                .addContainerGap(554, Short.MAX_VALUE)
                 .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrincipalLayout.createSequentialGroup()
                         .addComponent(girarDadotJButton)
@@ -85,26 +97,26 @@ public class PrincipalFrame extends javax.swing.JFrame {
                         .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(dadojLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                                .addComponent(jugarjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(365, 365, 365)
+                                .addComponent(jugarjButton)
+                                .addGap(481, 481, 481)
                                 .addComponent(detenerDadoJButton)))
                         .addGap(26, 26, 26))))
         );
         jPanelPrincipalLayout.setVerticalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrincipalLayout.createSequentialGroup()
-                .addContainerGap(202, Short.MAX_VALUE)
+                .addContainerGap(276, Short.MAX_VALUE)
                 .addComponent(dadojLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(girarDadotJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jugarjButton))
-                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
                         .addGap(51, 51, 51)
-                        .addComponent(detenerDadoJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(17, 17, 17))
+                        .addComponent(detenerDadoJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jugarjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20))
         );
 
         jMenu1.setText("Opciones");
@@ -163,6 +175,22 @@ public class PrincipalFrame extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         reportesFrame.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jugarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugarjButtonActionPerformed
+        JFileChooser fileChosser = new JFileChooser();
+        int seleccion = fileChosser.showOpenDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            //aqui selecciono y guardo el FILE que va a utilizar el FileReader
+            File fichero = fileChosser.getSelectedFile();
+
+            try {
+                this.lector.leerTexto(fichero);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null,"Error al cargar el  archivo");
+            }
+
+        }
+    }//GEN-LAST:event_jugarjButtonActionPerformed
 
         
     /**

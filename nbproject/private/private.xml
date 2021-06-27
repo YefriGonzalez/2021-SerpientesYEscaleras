@@ -12,13 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/yefri1000/NetBeansProjects/2021-SerpientesYEscaleras/src/manejoArchivos/LectorTableroEnTexto.java</file>
             <file>file:/home/yefri1000/NetBeansProjects/2021-SerpientesYEscaleras/src/frames/PrincipalFrame.java</file>
-            <file>file:/home/yefri1000/NetBeansProjects/2021-SerpientesYEscaleras/src/manejoArchivos/CargarUsuarioBInario.java</file>
+            <file>file:/home/yefri1000/NetBeansProjects/2021-SerpientesYEscaleras/src/usuario/Tablero.java</file>
             <file>file:/home/yefri1000/NetBeansProjects/2021-SerpientesYEscaleras/src/frames/opcionesJuegoFrame.java</file>
-            <file>file:/home/yefri1000/NetBeansProjects/2021-SerpientesYEscaleras/src/usuarios/Usuario.java</file>
-            <file>file:/home/yefri1000/NetBeansProjects/2021-SerpientesYEscaleras/src/manejoArchivos/GuardarUsuarioBinario.java</file>
-            <file>file:/home/yefri1000/NetBeansProjects/2021-SerpientesYEscaleras/src/frames/ReportesFrame.java</file>
-            <file>file:/home/yefri1000/NetBeansProjects/2021-SerpientesYEscaleras/src/frames/LoginSerEsc.java</file>
         </group>
     </open-files>
 </project-private>
