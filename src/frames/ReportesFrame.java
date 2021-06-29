@@ -5,11 +5,7 @@
  */
 package frames;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import manejoArchivos.CargarUsuarioBInario;
 import manejoArchivos.GuardarUsuarioBinario;
 import usuario.Usuario;

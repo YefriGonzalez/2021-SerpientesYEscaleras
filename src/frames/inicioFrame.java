@@ -6,7 +6,7 @@ package frames;
  *
  * @author yefri1000
  */
-public class opcionesJuegoFrame extends javax.swing.JFrame {
+public class inicioFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form opcionesJuegoFrame
@@ -14,7 +14,7 @@ public class opcionesJuegoFrame extends javax.swing.JFrame {
     LoginSerEsc login = new LoginSerEsc();
     PrincipalFrame principal = new PrincipalFrame();
 
-    public opcionesJuegoFrame() {
+    public inicioFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -106,20 +106,21 @@ public class opcionesJuegoFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(opcionesJuegoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inicioFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(opcionesJuegoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inicioFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(opcionesJuegoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inicioFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(opcionesJuegoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inicioFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new opcionesJuegoFrame().setVisible(true);
+                new inicioFrame().setVisible(true);
             }
         });
     }
