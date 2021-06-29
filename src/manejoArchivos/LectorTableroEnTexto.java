@@ -36,6 +36,12 @@ public class LectorTableroEnTexto {
     private int columnaFinalRetroceso;
     Tablero tablero;
 
+    /**
+     * Metodod leer texto
+     * @param Archivo recibe parametro de archivo que es leido desde JFileChooser
+     * @throws FileNotFoundException 
+     * @throws IOException 
+     */
     public void leerTexto(File Archivo) throws FileNotFoundException, IOException {
         FileReader fr = new FileReader(Archivo);
         BufferedReader br = new BufferedReader(fr);
@@ -52,6 +58,11 @@ public class LectorTableroEnTexto {
         crearTablero.construirTableroPanel();
     }
 
+    
+    /**
+     * Metdodo para separar campos
+     * @param linea recibe como parametro cada linea leida y la divide por el metodo substrin y split
+     */
     public void separarCampos(String linea) {
         String inicioTablero = "tablero(";
         String inicioPierdeTurno = "pierdeturno(";

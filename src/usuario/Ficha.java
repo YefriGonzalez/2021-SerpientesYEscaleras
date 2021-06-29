@@ -36,12 +36,21 @@ public class Ficha {
         fichaRoja();
     }
     
+    /**
+     * Funcion ficha Amarilla que regresa el label amarillo
+     * @return 
+     */
     public JLabel fichaAmarilla(){
         colorAmarillo=new javax.swing.ImageIcon(getClass().getResource("/imagenes/amarillo.png"));
         fichaAmarilla=new JLabel(colorAmarillo);
         fichaAmarilla.setIcon(colorAmarillo);
         return fichaAmarilla;
     }
+    
+    /**
+     * Funcion ficha Azul que regresa el label azul
+     * @return 
+     */
     public JLabel fichaAzul(){
         colorAzul=new javax.swing.ImageIcon(getClass().getResource("/imagenes/azul.png"));
         fichaAzul=new JLabel(colorAzul);
@@ -49,6 +58,10 @@ public class Ficha {
         return fichaAzul;
     }
     
+    /**
+     * Funcion ficha Blanca que regresa el label Blanco
+     * @return 
+     */
     public JLabel fichaBlanca(){
         colorBlanco=new javax.swing.ImageIcon(getClass().getResource("/imagenes/blanco.png"));
         fichaBlanca=new JLabel(colorBlanco);
@@ -56,6 +69,10 @@ public class Ficha {
         return fichaBlanca;
     }
     
+    /**
+     * Funcion ficha Naranja que regresa el label naranja
+     * @return 
+     */
     public JLabel fichaNaranja(){
         colorNaranja=new javax.swing.ImageIcon(getClass().getResource("/imagenes/naranja.png"));
         fichaNaranja=new JLabel(colorNaranja);
@@ -63,6 +80,10 @@ public class Ficha {
         return fichaNaranja;
     }
     
+    /**
+     * Funcion ficha Negra que regresa el label negra
+     * @return 
+     */
     public JLabel fichaNegra(){
         colorNegro=new javax.swing.ImageIcon(getClass().getResource("/imagenes/negro.png"));
         fichaNegra=new JLabel(colorNegro);
@@ -70,6 +91,10 @@ public class Ficha {
         return fichaNegra;
     }
     
+    /**
+     * Funcion ficha Roja que regresa el label roja
+     * @return 
+     */
     public JLabel fichaRoja(){
         colorRojo=new javax.swing.ImageIcon(getClass().getResource("/imagenes/rojo.png"));
         fichaRoja=new JLabel(colorRojo);

@@ -80,11 +80,19 @@ public class inicioFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * boton que hace visible la ventana de jugar
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         principal.setVisible(true);
   
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * boton que hace visible la ventana de login
+     * @param evt 
+     */
     private void registrarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarjButtonActionPerformed
         login.setVisible(true);
     }//GEN-LAST:event_registrarjButtonActionPerformed

@@ -14,7 +14,7 @@ import usuario.Usuario;
 public class LoginSerEsc extends javax.swing.JFrame {
 
     /**
-     * Creates new form loginSerEsc
+     Creates new form loginSerEsc
      */
     GuardarUsuarioBinario guardarInfo=new GuardarUsuarioBinario();
     public LoginSerEsc() {
@@ -202,6 +202,10 @@ public class LoginSerEsc extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_idjTextFieldKeyTyped
 
+    /**
+     * Metodo registrar
+     * @param evt boton pra registra el usuario evaula si algun campo esta vacio y lo envia a la clase guardar usurio que guarda en binarios
+     */
     private void registrarsejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarsejButtonActionPerformed
 
         try {
@@ -231,6 +235,9 @@ public class LoginSerEsc extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Metodo limpira Campos, ingresa a los  textfiela utilzados y limpia lo escrito  antes
+     */
     public void limpiarCampos() {
         nombrejTextField.setText("");
         apellidojTextField.setText("");

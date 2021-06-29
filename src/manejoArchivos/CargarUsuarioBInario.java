@@ -13,6 +13,14 @@ import usuario.Usuario;
  * @author yefri1000
  */
 public class CargarUsuarioBInario {
+    
+    /**
+     * Metdodo cargarUsuarioBinario carga los archivos binarios guardados
+     * @return return un arraList de usuarios
+     * @throws FileNotFoundException  
+     * @throws IOException
+     * @throws ClassNotFoundException 
+     */
     public ArrayList<Usuario> cargarUsuarioBinario() throws FileNotFoundException,IOException,ClassNotFoundException{
         ArrayList<Usuario> usuarios = new ArrayList<>();//indicamos un array list de pasaporte para leer los archivos
         String[] archivos=GuardarUsuarioBinario.ARCHIVOUSUARIO.list();

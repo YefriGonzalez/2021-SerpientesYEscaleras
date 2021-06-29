@@ -40,8 +40,10 @@ public class Juego {
     int contadorj5;
     int contadorj6;
 
-    /* 
-     */
+    /**
+     * Constructor de la clase Juego, inicializa las posisciones de las fihcas en x y y e inicializa arrayLista de usuarios y fichas para jugadores
+     */ 
+  
     public Juego() {
         usuarios = new ArrayList<>();
         fichas = new ArrayList<>();
@@ -60,11 +62,19 @@ public class Juego {
         turnoDisponible = true;
     }
 
+    /**
+     * 
+     * @param usuario recibe el parametro usuarioa de la clase PrincipalFrame, cuando se pide el nombre y cantidad de jugadores
+     * @param ficha  recible un JLabel para poder tener el usuarioa y la ficha en un mismo indice de los ArrayList
+     */
     public void registrarJugadores(Usuario usuario, JLabel ficha) {
         usuarios.add(usuario);
         fichas.add(ficha);
     }
 
+    /**
+     * Metodo jugar realiza los turnos de jugadores
+     */
     public void Jugar() {
         ganador = false;
         try {
@@ -99,6 +109,11 @@ public class Juego {
         }
     }
 
+    /**
+     * Metodo Tunro jugador 1 
+     * @param usuario Recibie como parametro un usuario para ir mostrando el nombre y las instrucciones
+     * @param ficha  recibe como parametro un label para ir moviendo  la ficha 
+     */
     public void turnoJugador1(Usuario usuario, JLabel ficha) {
         contadorj1 = 0;
         turnoDisponible=false;
@@ -134,6 +149,13 @@ public class Juego {
         }
     }
 
+    
+    
+    /**
+     * Metodo Tunro jugador 2
+     * @param usuario Recibie como parametro un usuario para ir mostrando el nombre y las instrucciones
+     * @param ficha  recibe como parametro un label para ir moviendo  la ficha 
+     */
     public void turnoJugador2(Usuario usuario, JLabel ficha) {
         contadorj2 = 0;
         turnoDisponible=false;
@@ -168,6 +190,13 @@ public class Juego {
             });
         }
     }
+    
+    
+    /**
+     * Metodo Tunro jugador 3 
+     * @param usuario Recibie como parametro un usuario para ir mostrando el nombre y las instrucciones
+     * @param ficha  recibe como parametro un label para ir moviendo  la ficha 
+     */
 
     public void turnoJugador3(Usuario usuario, JLabel ficha) {
         contadorj3 = 0;
@@ -205,6 +234,13 @@ public class Juego {
         }
     }
 
+    
+    
+    /**
+     * Metodo Tunro jugador 4 
+     * @param usuario Recibie como parametro un usuario para ir mostrando el nombre y las instrucciones
+     * @param ficha  recibe como parametro un label para ir moviendo  la ficha 
+     */
     public void turnoJugador4(Usuario usuario, JLabel ficha) {
         contadorj4 = 0;
         turnoDisponible=false;
@@ -241,6 +277,13 @@ public class Juego {
 
     }
 
+    
+    
+    /**
+     * Metodo Tunro jugador 5 
+     * @param usuario Recibie como parametro un usuario para ir mostrando el nombre y las instrucciones
+     * @param ficha  recibe como parametro un label para ir moviendo  la ficha 
+     */
     public void turnoJugador5(Usuario usuario, JLabel ficha) {
         contadorj5 = 0;
         turnoDisponible=false;
@@ -277,6 +320,13 @@ public class Juego {
 
     }
 
+    
+    
+    /**
+     * Metodo Tunro jugador 5 
+     * @param usuario Recibie como parametro un usuario para ir mostrando el nombre y las instrucciones
+     * @param ficha  recibe como parametro un label para ir moviendo  la ficha 
+     */
     public void turnoJugador6(Usuario usuario, JLabel ficha) {
         contadorj6 = 0;
         turnoDisponible=false;
@@ -311,11 +361,22 @@ public class Juego {
         }
     }
 
+    
+    /**
+     * Metodo para enviar las partidas jugadas, ganadas y perdidas
+     */
     public void enviarReportes() {
         for (int i = 0; i < usuarios.size(); i++) {
             usuarios.get(i).setPartidasJugadas(1);
         }
     }
+    
+    /**
+     * metodo BuscarGanador
+     * @param ficha  recibe como parametro un label para evaluarla si llego a la posicio 0,0 
+     * @param usuario recibe el  usuario si llego a 0,0 usar el setPartidasGanadas e incrementa
+     * @return  regresa un boolean ganador para termina el while de jugar
+     */
 
     public boolean buscarGanador(JLabel ficha, Usuario usuario) {
         if (ConstructorTablero.getTableroPanel()[0][0].getComponents().equals(ficha)) {

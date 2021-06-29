@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package frames;
 
 import java.util.ArrayList;
@@ -120,18 +116,24 @@ public class ReportesFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * metodo para minimizar la pestaña
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Botono pra ver usuarios, busca los usuarios en archivo binarios y los imprime en un tabla
+     * @param evt 
+     */
     private void verUsuariosjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verUsuariosjButtonActionPerformed
         try {
             ArrayList<Usuario> usuarios = this.cargarUsuarios.cargarUsuarioBinario();
             GuardarUsuarioBinario.tablaUsuarios(usuarios,usuariosjTable);
         } catch (Exception ex) {
             ex.printStackTrace();
-        //} catch (ClassNotFoundException ex) {
-           // ex.printStackTrace();
         }
     }//GEN-LAST:event_verUsuariosjButtonActionPerformed
 

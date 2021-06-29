@@ -24,9 +24,6 @@ import java.lang.Object;
  */
 public class PrincipalFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form principalFrame
-     */
     CargarUsuarioBInario carga = new CargarUsuarioBInario();
     ReportesFrame reportesFrame;
     LectorTableroEnTexto lector;
@@ -37,6 +34,11 @@ public class PrincipalFrame extends javax.swing.JFrame {
     private boolean naranjaDisponible=true;
     private boolean blancoDisponible=true;
     private boolean negroDisponible=true;
+    JLabel imagen;
+    Ficha ficha =new Ficha();
+    /**
+     * Creates new form principalFrame
+     */
 
     public PrincipalFrame() {
         lector = new LectorTableroEnTexto();
@@ -60,7 +62,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         girarDadotJButton = new javax.swing.JButton();
         detenerDadoJButton = new javax.swing.JButton();
         dadojLabel = new javax.swing.JLabel();
-        jugarjButton = new javax.swing.JButton();
+        CargarArchivojButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -108,10 +110,10 @@ public class PrincipalFrame extends javax.swing.JFrame {
             }
         });
 
-        jugarjButton.setText("Cargar Tablero");
-        jugarjButton.addActionListener(new java.awt.event.ActionListener() {
+        CargarArchivojButton.setText("Cargar Tablero");
+        CargarArchivojButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jugarjButtonActionPerformed(evt);
+                CargarArchivojButtonActionPerformed(evt);
             }
         });
 
@@ -187,7 +189,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
                             .addGroup(jPanelPrincipalLayout.createSequentialGroup()
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(392, 392, 392)
-                                .addComponent(jugarjButton)
+                                .addComponent(CargarArchivojButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 654, Short.MAX_VALUE)
                                 .addComponent(detenerDadoJButton)))
                         .addGap(26, 26, 26))
@@ -271,7 +273,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
                     .addGroup(jPanelPrincipalLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jugarjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CargarArchivojButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(20, 20, 20))
         );
@@ -319,6 +321,9 @@ public class PrincipalFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Metodo InicializarLabel, pone los nombres en setVisible false para que se muestran unicamente al ingresar los jugadores
+     */
     public void inicializarLabelNombres() {
         jLabel1.setVisible(false);
         jLabel2.setVisible(false);
@@ -353,7 +358,11 @@ public class PrincipalFrame extends javax.swing.JFrame {
         reportesFrame.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jugarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugarjButtonActionPerformed
+    /**
+     * JugarButton boton para cargar el archivo de texto para creacion de tablero
+     * @param evt  
+     */
+    private void CargarArchivojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarArchivojButtonActionPerformed
         JFileChooser fileChosser = new JFileChooser();
         int seleccion = fileChosser.showOpenDialog(this);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
@@ -365,10 +374,13 @@ public class PrincipalFrame extends javax.swing.JFrame {
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Error al cargar el  archivo");
             }
-
         }
-    }//GEN-LAST:event_jugarjButtonActionPerformed
+    }//GEN-LAST:event_CargarArchivojButtonActionPerformed
 
+    /**
+     * Menu item boton para jugar, ingresa usuarios y colores para jugar
+     * @param evt 
+     */
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         int contador = 0;
         String color = null;
@@ -423,8 +435,11 @@ public class PrincipalFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    JLabel imagen;
-    Ficha ficha =new Ficha();
+    /**
+     * Funcion elegir Color
+     * @param color recibe como paremtro un strin y evalula si esta disponbile y lo imprime en el tablero en la  posicion de abajo
+     * @return regresa un label de imagen
+     */
     public JLabel elegirColor(String color){
         if(color.equals("Rojo") && rojoDisponible==true){
             colorCorrecto=true;
@@ -463,6 +478,12 @@ public class PrincipalFrame extends javax.swing.JFrame {
         return imagen;
     }
     
+    /**
+     * Metdo poner nombres
+     * @param i parametro de entero para ingresar el nombre en le jugador 1,2,3 etc
+     * @param nombre parametro de  nombre para ingresarlo en el label y hacerlo visible
+     * @param color  parametro de color para ingresarlo en el label y hacerlo visible
+     */
     public void ponerNombres(int i, String nombre,String color) {
         if (i == 0) {
             jugador1jLabel.setText(nombre);
@@ -508,6 +529,10 @@ public class PrincipalFrame extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * boton para minimizar la venta 
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -549,6 +574,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JButton CargarArchivojButton;
     private javax.swing.JLabel colorJugador1jLabel;
     private javax.swing.JLabel colorJugador2jLabel;
     private javax.swing.JLabel colorJugador3jLabel;
@@ -576,6 +602,5 @@ public class PrincipalFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jugador4jLabel;
     private javax.swing.JLabel jugador5jLabel;
     private javax.swing.JLabel jugador6jLabel;
-    public static javax.swing.JButton jugarjButton;
     // End of variables declaration//GEN-END:variables
 }

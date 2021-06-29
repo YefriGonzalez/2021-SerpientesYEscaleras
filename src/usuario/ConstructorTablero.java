@@ -25,6 +25,9 @@ public class ConstructorTablero {
         return tableroPanel;
     }
     
+    /**
+     * Metodo para constrir tablero a partir de el tablero creado con el archivo de texto
+     */
     public static  void construirTableroPanel(){
         int x=10;
         int y=10;
@@ -52,7 +55,7 @@ public class ConstructorTablero {
             x=10;
             y+=110;
         }
-        PrincipalFrame.jugarjButton.setEnabled(false);
+        PrincipalFrame.CargarArchivojButton.setEnabled(false);
     }
     
 }

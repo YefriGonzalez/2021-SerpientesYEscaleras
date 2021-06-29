@@ -12,6 +12,10 @@ package frames;
 public class Dado {
     private int valor;
     
+    /**
+        *funcion  tirarNuemro
+        *crea un random de 1 a 6 y devuelve el malor
+    */
     public int tirarNumero(){
         valor=(int)(Math.random()*(6-1)+1);
             return valor;

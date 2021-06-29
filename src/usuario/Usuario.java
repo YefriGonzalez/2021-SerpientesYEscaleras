@@ -16,6 +16,15 @@ public class Usuario implements Serializable{
     private int partidasPerdidas;
    
 
+    /**
+     * Constructor que recibe parametros para crear un nuevo usuario
+     * @param nombre
+     * @param apellido
+     * @param id
+     * @param partidasJugadas
+     * @param partidasGanadas
+     * @param partidasPerdidas 
+     */
     public Usuario(String nombre, String apellido, int id,int partidasJugadas,int partidasGanadas,int partidasPerdidas) {
         this.nombre = nombre;
         this.apellido = apellido;

@@ -1,4 +1,3 @@
-
 package manejoArchivos;
 
 import java.io.File;
@@ -18,6 +17,13 @@ import usuario.Usuario;
 public class GuardarUsuarioBinario {
     
     public static final File ARCHIVOUSUARIO = new File("Usuarios");
+    
+    /**
+     * metodo GuarddarUsuario
+     * @param usuarios recibe un arrayList de usuarios y los guarda en archivos binario
+     * @throws IOException
+     * @throws FileNotFoundException 
+     */
     public void guardarUsuario(ArrayList<Usuario> usuarios) throws IOException,FileNotFoundException{
         FileOutputStream archivoSalida;
         ObjectOutputStream objetoSalida;
@@ -28,6 +34,12 @@ public class GuardarUsuarioBinario {
             objetoSalida.close();//cerramos el objeto de salida
         }
     }
+    
+    /**
+     * MetodoTablaUusarios
+     * @param usuarios recibe los usuarios recibidos de los binarios
+     * @param tabla muestra los usuarios en una tabla en la ventana de reportes
+     */
     
     public static void tablaUsuarios(ArrayList<Usuario> usuarios,JTable tabla){
         DefaultTableModel modeloTabla = new DefaultTableModel();
