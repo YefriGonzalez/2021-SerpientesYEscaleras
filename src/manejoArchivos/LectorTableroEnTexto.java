@@ -49,7 +49,7 @@ public class LectorTableroEnTexto {
         }
         tablero = new Tablero(filas,columnas,filaPierdeTurno,columnaPierdeTurno,filaTiraDados,columnaTiraDados,filaAvanza,columnaAvanza,cantPosicionesAvanza,filaRetrocede,columnaRetrocede,cantPosicionesRetrocede,filaInicialSubida,columnaInicialSubida,filaFinalSubida,columnaFinalSubida,filaInicialRetroceso,columnaInicialRetroceso,filaFinalRetroceso,columnaFinalRetroceso);
         ConstructorTablero crearTablero=new ConstructorTablero(tablero);
-        crearTablero.construirTablero();
+        crearTablero.construirTableroPanel();
     }
 
     public void separarCampos(String linea) {

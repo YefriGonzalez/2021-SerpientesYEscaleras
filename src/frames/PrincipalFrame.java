@@ -5,19 +5,18 @@
  */
 package frames;
 
-import java.awt.Color;
-import java.awt.HeadlessException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import manejoArchivos.CargarUsuarioBInario;
-import manejoArchivos.GuardarUsuarioBinario;
 import manejoArchivos.LectorTableroEnTexto;
+import usuario.ConstructorTablero;
+import usuario.Ficha;
 import usuario.Usuario;
+import java.lang.Object;
 
 /**
  *
@@ -31,12 +30,13 @@ public class PrincipalFrame extends javax.swing.JFrame {
     CargarUsuarioBInario carga = new CargarUsuarioBInario();
     ReportesFrame reportesFrame;
     LectorTableroEnTexto lector;
-    Color colorAzul = Color.BLUE;
-    Color colorAmarillo = Color.YELLOW;
-    Color colorNaranja = Color.ORANGE;
-    Color colorNegro = Color.BLACK;
-    Color colorBlanco = Color.WHITE;
-    Color colorRojo = Color.RED;
+    private boolean colorCorrecto;
+    private boolean rojoDisponible=true;
+    private boolean amarilloDisponible=true;
+    private boolean azulDisponible=true;
+    private boolean naranjaDisponible=true;
+    private boolean blancoDisponible=true;
+    private boolean negroDisponible=true;
 
     public PrincipalFrame() {
         lector = new LectorTableroEnTexto();
@@ -74,6 +74,12 @@ public class PrincipalFrame extends javax.swing.JFrame {
         jugador5jLabel = new javax.swing.JLabel();
         jugador6jLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        colorJugador1jLabel = new javax.swing.JLabel();
+        colorJugador2jLabel = new javax.swing.JLabel();
+        colorJugador3jLabel = new javax.swing.JLabel();
+        colorJugador4jLabel = new javax.swing.JLabel();
+        colorJugador5jLabel = new javax.swing.JLabel();
+        colorJugador6jLabel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -150,6 +156,23 @@ public class PrincipalFrame extends javax.swing.JFrame {
             }
         });
 
+        colorJugador1jLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        colorJugador1jLabel.setText("jLabel7");
+
+        colorJugador2jLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        colorJugador2jLabel.setText("jLabel8");
+
+        colorJugador3jLabel.setText("jLabel7");
+
+        colorJugador4jLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        colorJugador4jLabel.setText("jLabel7");
+
+        colorJugador5jLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        colorJugador5jLabel.setText("jLabel7");
+
+        colorJugador6jLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        colorJugador6jLabel.setText("jLabel7");
+
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
         jPanelPrincipal.setLayout(jPanelPrincipalLayout);
         jPanelPrincipalLayout.setHorizontalGroup(
@@ -164,7 +187,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(392, 392, 392)
                                 .addComponent(jugarjButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 421, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 515, Short.MAX_VALUE)
                                 .addComponent(detenerDadoJButton)))
                         .addGap(26, 26, 26))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrincipalLayout.createSequentialGroup()
@@ -181,7 +204,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addComponent(jLabel5)
                         .addComponent(jLabel6)))
-                .addGap(146, 146, 146)
+                .addGap(28, 28, 28)
                 .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jugador1jLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jugador2jLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -189,36 +212,54 @@ public class PrincipalFrame extends javax.swing.JFrame {
                     .addComponent(jugador4jLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jugador5jLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jugador6jLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(colorJugador1jLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                    .addComponent(colorJugador2jLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(colorJugador3jLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(colorJugador4jLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(colorJugador5jLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(colorJugador6jLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(55, 55, 55))
         );
         jPanelPrincipalLayout.setVerticalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrincipalLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jugador1jLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jugador1jLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrincipalLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(colorJugador1jLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(27, 27, 27)
                 .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jugador2jLabel))
+                    .addComponent(jugador2jLabel)
+                    .addComponent(colorJugador2jLabel))
                 .addGap(29, 29, 29)
                 .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jugador3jLabel))
+                    .addComponent(jugador3jLabel)
+                    .addComponent(colorJugador3jLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jugador4jLabel))
+                    .addComponent(jugador4jLabel)
+                    .addComponent(colorJugador4jLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jugador5jLabel))
+                    .addComponent(jugador5jLabel)
+                    .addComponent(colorJugador5jLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jugador6jLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
+                    .addComponent(jugador6jLabel)
+                    .addComponent(colorJugador6jLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
                 .addComponent(dadojLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(girarDadotJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,6 +329,12 @@ public class PrincipalFrame extends javax.swing.JFrame {
         jugador4jLabel.setVisible(false);
         jugador5jLabel.setVisible(false);
         jugador6jLabel.setVisible(false);
+        colorJugador1jLabel.setVisible(false);
+        colorJugador2jLabel.setVisible(false);
+        colorJugador3jLabel.setVisible(false);
+        colorJugador4jLabel.setVisible(false);
+        colorJugador5jLabel.setVisible(false);
+        colorJugador6jLabel.setVisible(false);
     }
 
     private void girarDadotJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_girarDadotJButtonActionPerformed
@@ -332,22 +379,32 @@ public class PrincipalFrame extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         int contador = 0;
         String color = null;
-        int numeroJugadores = Integer.valueOf((JOptionPane.showInputDialog(null, "Cantidad de jugadores para esta partida", "", JOptionPane.PLAIN_MESSAGE, null, new Object[]{2, 3, 4, 5, 6}, "Selecciona")).toString());
+        Juego juego=new Juego();
+        int numeroJugadores = Integer.valueOf((JOptionPane.showInputDialog(null, "Cantidad de jugadores para esta partida","", JOptionPane.PLAIN_MESSAGE, null, new Object[]{2, 3, 4, 5, 6}, "Selecciona")).toString());
         try {
             ArrayList<Usuario> usuario;
             usuario = carga.cargarUsuarioBinario();
             if (usuario.get(numeroJugadores - 1).getNombre() != null) {
                 for (int i = 0; i < numeroJugadores; i++) {
                     boolean nombreCorrecto = false;
+                    colorCorrecto=false;
                     contador += i;
                     String nombre = JOptionPane.showInputDialog(null, "Ingrese nombre de Usuario No: "+(i+1));
                     if (nombre==null) {
                         i = numeroJugadores;
                         inicializarLabelNombres();
+                        rojoDisponible=true;
+                        amarilloDisponible=true;
+                        azulDisponible=true;
+                        blancoDisponible=true;
+                        negroDisponible=true;
+                        naranjaDisponible=true;
                     } else {
                         color = (JOptionPane.showInputDialog(null, "Color de Ficha","", JOptionPane.PLAIN_MESSAGE, null, new Object[]{"Rojo", "Amarillo", "Blanco", "Negro", "Naranja", "Azul"},"Selecciona")).toString();
+                        elegirColor(color);
                         for (int j = 0; j < numeroJugadores && !nombreCorrecto; j++) {
-                            if (usuario.get(j).getNombre().equals(nombre)) {
+                            if (usuario.get(j).getNombre().equals(nombre) && colorCorrecto==true) {
+                                juego.jugar(usuario.get(i), imagen);
                                 ponerNombres(i,nombre);
                                 JOptionPane.showMessageDialog(null, "Usuario correcto");
                                 nombreCorrecto = true;
@@ -373,6 +430,46 @@ public class PrincipalFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    JLabel imagen;
+    public JLabel elegirColor(String color){
+        Ficha ficha =new Ficha();
+        if(color.equals("Rojo") && rojoDisponible==true){
+            colorCorrecto=true;
+            rojoDisponible=false;
+            ConstructorTablero.getTableroPanel()[ConstructorTablero.getTablero().getFilas()-1][ConstructorTablero.getTablero().getColumnas()-1].add(ficha.fichaRoja());
+            imagen=ficha.fichaRoja();
+        } else if(color.equals("Amarillo") && amarilloDisponible==true){
+            amarilloDisponible=false;
+            colorCorrecto=true;
+            ConstructorTablero.getTableroPanel()[ConstructorTablero.getTablero().getFilas()-1][ConstructorTablero.getTablero().getColumnas()-1].add(ficha.fichaAmarilla());
+            imagen=ficha.fichaAmarilla();
+        } else if(color.equals("Naranja") && naranjaDisponible==true){
+            naranjaDisponible=false;
+            colorCorrecto=true;
+            ConstructorTablero.getTableroPanel()[ConstructorTablero.getTablero().getFilas()-1][ConstructorTablero.getTablero().getColumnas()-1].add(ficha.fichaNaranja());
+            imagen=ficha.fichaNaranja();
+        } else  if(color.equals("Azul")&& azulDisponible==true){
+            azulDisponible=false;
+            colorCorrecto=true;
+            ConstructorTablero.getTableroPanel()[ConstructorTablero.getTablero().getFilas()-1][ConstructorTablero.getTablero().getColumnas()-1].add(ficha.fichaAzul());
+            imagen=ficha.fichaAzul();
+        } else if(color.equals("Blanco") && blancoDisponible==true){
+            blancoDisponible=false;
+            colorCorrecto=true;
+            ConstructorTablero.getTableroPanel()[ConstructorTablero.getTablero().getFilas()-1][ConstructorTablero.getTablero().getColumnas()-1].add(ficha.fichaBlanca());
+            imagen=ficha.fichaBlanca();
+        } else if(color.equals("Negro") && negroDisponible==true){
+            negroDisponible=false;
+            colorCorrecto=true;
+            ConstructorTablero.getTableroPanel()[ConstructorTablero.getTablero().getFilas()-1][ConstructorTablero.getTablero().getColumnas()-1].add(ficha.fichaNegra());
+            imagen=ficha.fichaNegra();
+        } else {
+            JOptionPane.showMessageDialog(null,"Color ya utilizado");
+            colorCorrecto=false;
+        }
+        return imagen;
+    }
+    
     public void ponerNombres(int i, String nombre) {
         if (i == 0) {
             jugador1jLabel.setText(nombre);
@@ -447,6 +544,12 @@ public class PrincipalFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel colorJugador1jLabel;
+    private javax.swing.JLabel colorJugador2jLabel;
+    private javax.swing.JLabel colorJugador3jLabel;
+    private javax.swing.JLabel colorJugador4jLabel;
+    private javax.swing.JLabel colorJugador5jLabel;
+    private javax.swing.JLabel colorJugador6jLabel;
     public static javax.swing.JLabel dadojLabel;
     private javax.swing.JButton detenerDadoJButton;
     public static javax.swing.JButton girarDadotJButton;

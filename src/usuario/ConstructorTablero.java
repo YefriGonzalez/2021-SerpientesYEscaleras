@@ -3,45 +3,56 @@ package usuario;
 import frames.PrincipalFrame;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
  * @author yefri1000
  */
 public class ConstructorTablero {
-    private static JLabel[][] tableroLabel;
-    Tablero tablero;
+    private static Tablero tablero;
+    private static JPanel[][] tableroPanel;
+    
     public ConstructorTablero(Tablero tablero){
         this.tablero=tablero;
     }
-    public  void construirTablero(){
+
+    public static Tablero getTablero() {
+        return tablero;
+    }
+
+    public static JPanel[][] getTableroPanel() {
+        return tableroPanel;
+    }
+    
+    public static  void construirTableroPanel(){
         int x=10;
         int y=10;
         int pos=0;
-        tableroLabel=new JLabel[this.tablero.getFilas()][this.tablero.getColumnas()];
-        for(int i=0;i<this.tablero.getFilas();i++){
-            for(int j=0;j<this.tablero.getColumnas();j++){
-                tableroLabel[i][j]=new JLabel();
-                tableroLabel[i][j].setBounds(x,y,75,75);
-                PrincipalFrame.jPanelPrincipal.add(tableroLabel[i][j]);
-                tableroLabel[i][j].setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-                tableroLabel[i][j].setOpaque(true);
-                tableroLabel[i][j].setBackground(Color.GREEN);
-                tableroLabel[i][j].setText((this.tablero.getColumnas()*this.tablero.getFilas()-(j))-pos+"");
-                tableroLabel[i][j].setVisible(true);
-                x+=75;
+        tableroPanel=new JPanel[tablero.getFilas()][tablero.getColumnas()];
+        for(int i=0;i<tablero.getFilas();i++){
+            for(int j=0;j<tablero.getColumnas();j++){
+                tableroPanel[i][j]=new JPanel();
+                tableroPanel[i][j].setBounds(x,y,90,90);
+                PrincipalFrame.jPanelPrincipal.add(tableroPanel[i][j]);
+                tableroPanel[i][j].setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                tableroPanel[i][j].setOpaque(true);
+                tableroPanel[i][j].setBackground(Color.GREEN);
+                if(i==0 &&j==0){
+                    tableroPanel[0][0].add(new JLabel("META"));
+                } else if ((i+1)==tablero.getFilas() && (j+1)==tablero.getColumnas()){
+                    tableroPanel[i][j].add(new JLabel("INICIO"));   
+                } else {
+                    tableroPanel[i][j].add(new JLabel(tablero.getColumnas()*tablero.getFilas()-j-pos+""));
+                }
+                tableroPanel[i][j].setVisible(true);
+                x+=90;
             }
-            pos+=this.tablero.getColumnas();
+            pos+=tablero.getColumnas();
             x=10;
-            y+=75;
+            y+=90;
         }
         PrincipalFrame.jugarjButton.setEnabled(false);
     }
-
-    public static JLabel[][] getTableroLabel() {
-        return tableroLabel;
-    }
-    
-    
     
 }
