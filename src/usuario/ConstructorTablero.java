@@ -33,7 +33,7 @@ public class ConstructorTablero {
         for(int i=0;i<tablero.getFilas();i++){
             for(int j=0;j<tablero.getColumnas();j++){
                 tableroPanel[i][j]=new JPanel();
-                tableroPanel[i][j].setBounds(x,y,90,90);
+                tableroPanel[i][j].setBounds(x,y,110,110);
                 PrincipalFrame.jPanelPrincipal.add(tableroPanel[i][j]);
                 tableroPanel[i][j].setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
                 tableroPanel[i][j].setOpaque(true);
@@ -46,11 +46,11 @@ public class ConstructorTablero {
                     tableroPanel[i][j].add(new JLabel(tablero.getColumnas()*tablero.getFilas()-j-pos+""));
                 }
                 tableroPanel[i][j].setVisible(true);
-                x+=90;
+                x+=110;
             }
             pos+=tablero.getColumnas();
             x=10;
-            y+=90;
+            y+=110;
         }
         PrincipalFrame.jugarjButton.setEnabled(false);
     }

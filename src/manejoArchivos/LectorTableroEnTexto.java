@@ -40,7 +40,7 @@ public class LectorTableroEnTexto {
         FileReader fr = new FileReader(Archivo);
         BufferedReader br = new BufferedReader(fr);
         String linea;
-        while ((linea = br.readLine()) != null) {
+        while ((linea = br.readLine())!=null) {
             try {
                 separarCampos(linea);
             } catch (Exception e) {
@@ -62,28 +62,28 @@ public class LectorTableroEnTexto {
         String inicioBajada = "bajada(";
 
         if (linea.contains(inicioTablero)) {
-            String lineaDeCampos = linea.substring(inicioTablero.length(), linea.length() - 2);
+            String lineaDeCampos = linea.substring(inicioTablero.length(), linea.length()-1);
             String[] campos = lineaDeCampos.split(",");
             filas =Integer.valueOf(campos[0]);
             columnas=Integer.valueOf(campos[1]);
         }
 
         if (linea.contains(inicioPierdeTurno)) {
-            String lineaDeCampos = linea.substring(inicioPierdeTurno.length(), linea.length() - 2);
+            String lineaDeCampos = linea.substring(inicioPierdeTurno.length(), linea.length()-1);
             String[] campos = lineaDeCampos.split(",");
             filaPierdeTurno =Integer.valueOf(campos[0]);
             columnaPierdeTurno= Integer.valueOf(campos[1]);
         }
 
         if (linea.contains(inicioTiraDados)) {
-            String lineaDeCampos = linea.substring(inicioTiraDados.length(), linea.length() - 2);
+            String lineaDeCampos = linea.substring(inicioTiraDados.length(), linea.length()-1);
             String[] campos = lineaDeCampos.split(",");
             filaTiraDados =Integer.valueOf(campos[0]);
             columnaTiraDados=Integer.valueOf(campos[1]);
         }
 
         if (linea.contains(inicioAvanza)) {
-            String lineaDeCampos = linea.substring(inicioAvanza.length(), linea.length() - 2);
+            String lineaDeCampos = linea.substring(inicioAvanza.length(), linea.length()-1);
             String[] campos = lineaDeCampos.split(",");
             filaAvanza =Integer.valueOf(campos[0]);
             columnaAvanza=Integer.valueOf(campos[1]);
@@ -91,14 +91,14 @@ public class LectorTableroEnTexto {
         }
 
         if (linea.contains(inicioRetrocede)) {
-            String lineaDeCampos = linea.substring(inicioRetrocede.length(), linea.length() - 2);
+            String lineaDeCampos = linea.substring(inicioRetrocede.length(), linea.length()-1);
             String[] campos = lineaDeCampos.split(",");
             filaRetrocede =Integer.valueOf(campos[0]);
             columnaRetrocede=Integer.valueOf(campos[1]);
             cantPosicionesRetrocede = Integer.valueOf(campos[2]);
         }
         if (linea.contains(inicioSubida)) {
-            String lineaDeCampos = linea.substring(inicioSubida.length(), linea.length() - 2);
+            String lineaDeCampos = linea.substring(inicioSubida.length(), linea.length()-1);
             String[] campos = lineaDeCampos.split(",");
             filaInicialSubida = Integer.valueOf(campos[0]);
             columnaInicialSubida=Integer.valueOf(campos[1]);
@@ -106,7 +106,7 @@ public class LectorTableroEnTexto {
             columnaFinalSubida=Integer.valueOf(campos[3]);
         }
         if (linea.contains(inicioBajada)) {
-            String lineaDeCampos = linea.substring(inicioBajada.length(), linea.length() - 2);
+            String lineaDeCampos = linea.substring(inicioBajada.length(), linea.length()-1);
             String[] campos = lineaDeCampos.split(",");
             filaInicialRetroceso = Integer.valueOf(campos[0]);
             columnaInicialRetroceso=Integer.valueOf(campos[1]);

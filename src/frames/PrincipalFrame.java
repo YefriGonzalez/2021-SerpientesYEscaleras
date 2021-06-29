@@ -87,6 +87,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Serpientes y Escaleras");
+        setResizable(false);
 
         jPanelPrincipal.setBackground(new java.awt.Color(204, 0, 0));
         jPanelPrincipal.setForeground(new java.awt.Color(204, 0, 0));
@@ -187,7 +188,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(392, 392, 392)
                                 .addComponent(jugarjButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 515, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 654, Short.MAX_VALUE)
                                 .addComponent(detenerDadoJButton)))
                         .addGap(26, 26, 26))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrincipalLayout.createSequentialGroup()
@@ -306,7 +307,9 @@ public class PrincipalFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -404,7 +407,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
                         elegirColor(color);
                         for (int j = 0; j < numeroJugadores && !nombreCorrecto; j++) {
                             if (usuario.get(j).getNombre().equals(nombre) && colorCorrecto==true) {
-                                juego.jugar(usuario.get(i), imagen);
+                                juego.registrarJugadores(usuario.get(i), imagen);
                                 ponerNombres(i,nombre);
                                 JOptionPane.showMessageDialog(null, "Usuario correcto");
                                 nombreCorrecto = true;
