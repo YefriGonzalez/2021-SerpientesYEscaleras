@@ -13,18 +13,28 @@ import javax.swing.JLabel;
  * @author yefri1000
  */
 public class Ficha {
-    private ImageIcon colorAmarillo;
-    private ImageIcon colorAzul;
-    private ImageIcon colorNaranja;
-    private ImageIcon colorNegro;
-    private ImageIcon colorBlanco;
-    private ImageIcon colorRojo;
-    private JLabel fichaAmarilla;
-    private JLabel fichaRoja;
-    private JLabel fichaNegra;
-    private JLabel fichaNaranja;
-    private JLabel fichaBlanca;
-    private JLabel fichaAzul;
+    private static ImageIcon colorAmarillo;
+    private static ImageIcon colorAzul;
+    private static ImageIcon colorNaranja;
+    private static ImageIcon colorNegro;
+    private static ImageIcon colorBlanco;
+    private static ImageIcon colorRojo;
+    private static JLabel fichaAmarilla;
+    private static JLabel fichaRoja;
+    private static JLabel fichaNegra;
+    private static JLabel fichaNaranja;
+    private static JLabel fichaBlanca;
+    private static JLabel fichaAzul;
+    
+    
+    public Ficha(){
+        fichaAmarilla();
+        fichaAzul();
+        fichaBlanca();
+        fichaNaranja();
+        fichaNegra();
+        fichaRoja();
+    }
     
     public JLabel fichaAmarilla(){
         colorAmarillo=new javax.swing.ImageIcon(getClass().getResource("/imagenes/amarillo.png"));
@@ -67,5 +77,29 @@ public class Ficha {
         fichaRoja.setVisible(true);
         return fichaRoja;
     }
+
+    public static JLabel getFichaAmarilla() {
+        return fichaAmarilla;
+    }
+
+    public static JLabel getFichaRoja() {
+        return fichaRoja;
+    }
+
+    public static JLabel getFichaNegra() {
+        return fichaNegra;
+    }
+
+    public static JLabel getFichaNaranja() {
+        return fichaNaranja;
+    }
+
+    public static JLabel getFichaBlanca() {
+        return fichaBlanca;
+    }
+
+    public static JLabel getFichaAzul() {
+        return fichaAzul;
+    }    
     
 }
