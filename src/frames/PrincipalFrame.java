@@ -393,7 +393,6 @@ public class PrincipalFrame extends javax.swing.JFrame {
                 for (int i = 0; i < numeroJugadores; i++) {
                     boolean nombreCorrecto = false;
                     colorCorrecto=false;
-                    contador += i;
                     String nombre = JOptionPane.showInputDialog(null, "Ingrese nombre de Usuario No: "+(i+1));
                     if (nombre==null) {
                         i = numeroJugadores;
@@ -413,6 +412,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
                                 ponerNombres(i,nombre,color);
                                 JOptionPane.showMessageDialog(null, "Usuario correcto");
                                 nombreCorrecto = true;
+                                contador += 1;
                             } else {
                                 nombreCorrecto = false;
                             }
@@ -444,32 +444,32 @@ public class PrincipalFrame extends javax.swing.JFrame {
         if(color.equals("Rojo") && rojoDisponible==true){
             colorCorrecto=true;
             rojoDisponible=false;
-            ConstructorTablero.getTableroPanel()[ConstructorTablero.getTablero().getFilas()-1][ConstructorTablero.getTablero().getColumnas()-1].add(Ficha.getFichaRoja());
+            ConstructorTablero.getTableroPanel()[5][7].add(Ficha.getFichaRoja());
             imagen=Ficha.getFichaRoja();
         } else if(color.equals("Amarillo") && amarilloDisponible==true){
             amarilloDisponible=false;
             colorCorrecto=true;
-            ConstructorTablero.getTableroPanel()[ConstructorTablero.getTablero().getFilas()-1][ConstructorTablero.getTablero().getColumnas()-1].add(Ficha.getFichaAmarilla());
+            ConstructorTablero.getTableroPanel()[5][7].add(Ficha.getFichaAmarilla());
             imagen=Ficha.getFichaAmarilla();
         } else if(color.equals("Naranja") && naranjaDisponible==true){
             naranjaDisponible=false;
             colorCorrecto=true;
-            ConstructorTablero.getTableroPanel()[ConstructorTablero.getTablero().getFilas()-1][ConstructorTablero.getTablero().getColumnas()-1].add(Ficha.getFichaNaranja());
+            ConstructorTablero.getTableroPanel()[5][7].add(Ficha.getFichaNaranja());
             imagen=Ficha.getFichaNaranja();
         } else  if(color.equals("Azul")&& azulDisponible==true){
             azulDisponible=false;
             colorCorrecto=true;
-            ConstructorTablero.getTableroPanel()[ConstructorTablero.getTablero().getFilas()-1][ConstructorTablero.getTablero().getColumnas()-1].add(Ficha.getFichaAzul());
+            ConstructorTablero.getTableroPanel()[5][7].add(Ficha.getFichaAzul());
             imagen=Ficha.getFichaAzul();
         } else if(color.equals("Blanco") && blancoDisponible==true){
             blancoDisponible=false;
             colorCorrecto=true;
-            ConstructorTablero.getTableroPanel()[ConstructorTablero.getTablero().getFilas()-1][ConstructorTablero.getTablero().getColumnas()-1].add(Ficha.getFichaBlanca());
+            ConstructorTablero.getTableroPanel()[5][7].add(Ficha.getFichaBlanca());
             imagen=Ficha.getFichaBlanca();
         } else if(color.equals("Negro") && negroDisponible==true){
             negroDisponible=false;
             colorCorrecto=true;
-            ConstructorTablero.getTableroPanel()[ConstructorTablero.getTablero().getFilas()-1][ConstructorTablero.getTablero().getColumnas()-1].add(Ficha.getFichaNegra());
+            ConstructorTablero.getTableroPanel()[5][7].add(Ficha.getFichaNegra());
             imagen=Ficha.getFichaNegra();
         } else {
             JOptionPane.showMessageDialog(null,"Color ya utilizado");
