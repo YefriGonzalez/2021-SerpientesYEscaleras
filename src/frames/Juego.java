@@ -65,7 +65,7 @@ public class Juego {
     /**
      * Metodo jugar realiza los turnos de jugadores
      */
-    public void Jugar() throws Throwable {
+    public void Jugar() {
         ganador = false;
         turnoDisponible = true;
         girarDadotJButton.setEnabled(true);
@@ -108,13 +108,14 @@ public class Juego {
      * nombre y las instrucciones
      * @param ficha recibe como parametro un label para ir moviendo la ficha
      */
-    public int turnoJugador1(Usuario usuario, JLabel ficha) throws Throwable {
+    public int turnoJugador1(Usuario usuario, JLabel ficha) {
         contadorj1 = 0;
         turnoDisponible = false;
         girarDadotJButton.setEnabled(true);
         JOptionPane.showMessageDialog(null, "Turno de " + usuario.getNombre() + ", tire dado y parelo");
         if (contadorj1 == 0) {
             girarDadotJButton.addActionListener(new java.awt.event.ActionListener() {
+                @Override
                 public void actionPerformed(ActionEvent ae) {
                     ImagenesDados imagenDado = new ImagenesDados();
                     PrincipalFrame.detenerDadoJButton.setEnabled(true);
@@ -125,6 +126,7 @@ public class Juego {
             });
 
             PrincipalFrame.detenerDadoJButton.addActionListener(new java.awt.event.ActionListener() {
+                @Override
                 public void actionPerformed(ActionEvent ae) {
                     Dado dado = new Dado();
                     int dados = dado.tirarNumero();
@@ -149,12 +151,7 @@ public class Juego {
                     turnoDisponible = false;
                     girarDadotJButton.setEnabled(true);
                 }
-                @Override
-                protected void finalize() throws Throwable {
-                    super.finalize(); //To change body of generated methods, choose Tools | Templates.
-                }
             });
-            this.finalize();
             return 0;
         }
         return 0;
